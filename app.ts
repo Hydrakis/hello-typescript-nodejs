@@ -1,9 +1,17 @@
 import express = module("express")
 
+class Greeter {
+   constructor() { }
+   greet() {
+       return "hello world.";
+   }
+};
+
 var app = express.createServer();
 
 app.get('/', function (req, res) {
-    res.send("helloworld");
+    var greeter = new Greeter();
+    res.send(greeter.greet());
 });
 
 app.listen(3000, function(){
